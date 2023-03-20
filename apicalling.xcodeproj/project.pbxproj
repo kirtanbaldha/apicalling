@@ -14,6 +14,7 @@
 		D3026D6B29C2AB1300690E9A /* apicalling.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D3026D6929C2AB1300690E9A /* apicalling.xcdatamodeld */; };
 		D3026D6D29C2AB1400690E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3026D6C29C2AB1400690E9A /* Assets.xcassets */; };
 		D3026D7029C2AB1400690E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3026D6E29C2AB1400690E9A /* LaunchScreen.storyboard */; };
+		D388874F47CE2D23004D59E5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D388874E47CE2D23004D59E5 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D3026D6C29C2AB1400690E9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3026D6F29C2AB1400690E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3026D7129C2AB1400690E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D388874E47CE2D23004D59E5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				D3026D6029C2AB1300690E9A /* AppDelegate.swift */,
 				D3026D6229C2AB1300690E9A /* SceneDelegate.swift */,
 				D3026D6429C2AB1300690E9A /* ViewController.swift */,
+				D388874E47CE2D23004D59E5 /* TableViewCell.swift */,
 				D3026D6629C2AB1300690E9A /* Main.storyboard */,
 				D3026D6C29C2AB1400690E9A /* Assets.xcassets */,
 				D3026D6E29C2AB1400690E9A /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D388874F47CE2D23004D59E5 /* TableViewCell.swift in Sources */,
 				D3026D6529C2AB1300690E9A /* ViewController.swift in Sources */,
 				D3026D6129C2AB1300690E9A /* AppDelegate.swift in Sources */,
 				D3026D6329C2AB1300690E9A /* SceneDelegate.swift in Sources */,

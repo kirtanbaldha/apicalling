@@ -8,7 +8,10 @@ struct Get:Codable {
     
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    
+    @IBOutlet weak var dataTabel: UITableView!
     var arr : [Get] = []
 
     override func viewDidLoad() {
@@ -26,12 +29,32 @@ class ViewController: UIViewController {
                 if error == nil{
                     self.arr = try JSONDecoder().decode([Get].self, from: data!)
                     print(self.arr)
+                    DispatchQueue.main.async {
+                        self.dataTabel.reloadData()
+                    }
+                    
                 }
             }
             catch{
                 print(error.localizedDescription)
             }
         }.resume()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = dataTabel.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.label1.text = "\(arr[indexPath.row].userId)"
+        cell.label2.text = arr[indexPath.row].title
+        
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+        
     }
 
 }
