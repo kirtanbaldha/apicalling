@@ -1,4 +1,5 @@
 import UIKit
+import Alamofire
 
 struct Get:Codable {
     var userId : Int
@@ -20,25 +21,49 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
        
     }
     
-    func getData() {
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
-        var ur = URLRequest(url: url!)
-        ur.httpMethod = "GET"
-        URLSession.shared.dataTask(with: ur) { data, URLResponse, error in
-            do{
-                if error == nil{
-                    self.arr = try JSONDecoder().decode([Get].self, from: data!)
-                    print(self.arr)
-                    DispatchQueue.main.async {
-                        self.dataTabel.reloadData()
-                    }
+//    func getData() {
+//        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")
+//        var ur = URLRequest(url: url!)
+//        ur.httpMethod = "GET"
+//        URLSession.shared.dataTask(with: ur) { data, URLResponse, error in
+//            do{
+//                if error == nil{
+//                    self.arr = try JSONDecoder().decode([Get].self, from: data!)
+//                    print(self.arr)
+//                    DispatchQueue.main.async {
+//                        self.dataTabel.reloadData()
+//                    }
+//
+//                }
+//            }
+//            catch{
+//                print(error.localizedDescription)
+//            }
+//        }.resume()
+//    }
+    func getData(){
+        AF.request("https://jsonplaceholder.typicode.com/posts",method: .get).responseData { responce in
+            switch responce.result{
+                case.success(let data):
+                    do{
+                        if data == responce.value{
+                                        self.arr = try JSONDecoder().decode([Get].self, from: data)
+                                        print(self.arr)
+                                        DispatchQueue.main.async {
+                                            self.dataTabel.reloadData()
+                                        }
                     
-                }
+                                    }
+                                }
+                                catch{
+                                    print(error.localizedDescription)
+                                }
+                case.failure(let error):
+                    print(error.localizedDescription)
+                    
+                    
             }
-            catch{
-                print(error.localizedDescription)
-            }
-        }.resume()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
